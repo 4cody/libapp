@@ -1,0 +1,19 @@
+{
+  "name": "libapp",
+  "version": "1.0.0",
+  "description": "Mock library to store, add and remove books from a  data base",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4cody/libapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/4cody/libapp/issues"
+  },
+  "homepage": "https://github.com/4cody/libapp#readme"
+}
