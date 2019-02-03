@@ -12,6 +12,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', (req, res) => res.send('Hello World'));
 
+app.get('/catalogue', (req, res)=> {
+    Book.find({}).then(item => res.send(item))
+});
+
 app.post('/add', (req, res) => {
     let b = new Book({
         title: req.body.title,
