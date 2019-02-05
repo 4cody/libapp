@@ -9,14 +9,18 @@ const Book        = require('./models/book');
 const app         = express();
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+// const usersRouter = require('./routes/users');
 const catalogRouter = require('./routes/catalog');
 
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/users', usersRouter);
 app.use('/catalog', catalogRouter);
+
+// app.get('/catalog', (req, res) => {
+//     res.send("wokring route -11")
+// })
 
 // app.get('/', (req, res) => res.send('Hello World'));
 
@@ -38,7 +42,7 @@ app.use('/catalog', catalogRouter);
 //     res.send(req.body)
 // });
 
-const PORT = process.env | 3030;
+const PORT = process.env.PORT || 3030;
 
 mongoose.connect(db.URI, { useNewUrlParser: true }, (err) => {
     if(err) console.log(err) 

@@ -10,11 +10,15 @@
     "mongoose": "^5.4.9",
     "nodemon": "^1.18.9"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "cd .. && cd client && yarn start",
+    "dev": " node server.js && cd .. && cd client && yarn start"
   },
   "author": "",
   "license": "ISC"

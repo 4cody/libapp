@@ -2,6 +2,7 @@ import React from 'react';
 import '../../App.css';
 
 import Search from '../search/Search';
+import ResultContainer from '../resultContainer/ResultContainer';
 
 class AppMain extends React.Component {
     state = {};
@@ -10,6 +11,7 @@ class AppMain extends React.Component {
         return(
             <div className="App">
                 <Search />
+                <ResultContainer />
             </div>
         )
     } 
