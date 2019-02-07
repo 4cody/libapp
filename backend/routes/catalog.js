@@ -9,9 +9,7 @@ const book_controller = require('../controllers/bookController');
 // GET catalog home page.
 router.get('/', book_controller.index);
 
-// router.get('/', (req, res) => {
-//     res.send('test index')
-// })
+router.get('/:title', book_controller.book_title);
 
 // // GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
 // router.get('/book/create', book_controller.book_create_get);

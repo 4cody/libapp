@@ -12,3 +12,7 @@
 
   border-top: 2px solid blue;
 }
+
+.text-l {
+  text-align: start;
+}

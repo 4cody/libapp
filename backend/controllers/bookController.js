@@ -1,14 +1,13 @@
 const Book = require('../models/book');
 
 exports.index = (req, res) => {
-    Book.find({}).then(item => res.send(item))
+    Book.find({}).then(items => res.send(items))
 };
 
-// exports.book_title = (req, res) => {
-//     const t = req.body.search;
-
-//     res.send('Not implemented: Book list')
-// };
+exports.book_title = (req, res) => {
+    Book.findOne({title: req.params.title})
+        .then(item => res.send(item))
+};
 
 // exports.book_summary = (req, res) => {
 //     res.send('Not implemented: Book summary' + req.params.id)

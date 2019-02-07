@@ -16,9 +16,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "cd .. && cd client && yarn start",
-    "dev": " node server.js && cd .. && cd client && yarn start"
+    "server": "nodemon server.js  --delay 1500ms"
   },
   "author": "",
   "license": "ISC"
