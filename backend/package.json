@@ -8,15 +8,12 @@
     "express": "^4.16.4",
     "mongodb": "^3.1.13",
     "mongoose": "^5.4.9",
-    "nodemon": "^1.18.9"
-  },
-  "devDependencies": {
-    "concurrently": "^4.1.0"
+    "nodemon": "^1.18.10"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "server": "nodemon server.js  --delay 1500ms"
+    "server": "nodemon server"
   },
   "author": "",
   "license": "ISC"

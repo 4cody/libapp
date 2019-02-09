@@ -6,7 +6,7 @@ exports.index = (req, res) => {
 
 exports.book_title = (req, res) => {
     Book.findOne({title: req.params.title})
-        .then(item => res.send(item))
+        .then(doc => res.json(doc))
 };
 
 // exports.book_summary = (req, res) => {
