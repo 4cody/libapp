@@ -7,12 +7,13 @@ import GenreBTN from '../../components/genreButton/genreButton';
 class Search extends React.Component {
     state = {
         selectedOption: "one",
+        searchValue: '',
         genres: []
     };
 
     componentDidMount() {
         let gArr = [];
-        Axios.get('/catalog')
+        Axios.get('/books')
             .then(data => {
                 let d = data.data;
                 for(let i of d) {
@@ -46,27 +47,29 @@ class Search extends React.Component {
         })
     }
 
+    handleSearchChange = e => {
+        this.setState({
+            searchValue: e.target.value
+        })
+    }
+
     handleSubmit = e => {
-        // switch(this.state.selectedOption) {
-        //     case "one":
-        //       console.log('11111')
-        //       break;
-        //     case "two":
-        //       console.log("22222")
-        //       break;
-        //     case "three":
-        //       console.log("33333")
-        //       break;
-        //     default:
-        //       console.log('somethings broken')
-        // }
-        let qp = 'cotton'
+        let queryParam = this.state.searchValue;
         e.preventDefault();
-        Axios.get(`/catalog/${qp}`)
-            .then(data => console.log(data.data))
-            .catch(err => {
-                console.log(err)
-            })
+
+        if(this.state.selectedOption === 'one') {
+            Axios.get(`/books/${queryParam}`)
+                .then(data => console.log(data.data))
+                .catch(err => console.log(err))
+            console.log(queryParam)
+            console.log(this.state.selectedOption)
+        } else if (this.state.selectedOption === 'two') {
+            Axios.get(`/authors/${queryParam}`)
+                .then(data => console.log(data.data))
+                .catch(err => console.log(err))
+            console.log(queryParam)
+            console.log(this.state.selectedOption)
+        }
     }
 
     handleGenreClick = (e) => {
@@ -89,7 +92,7 @@ class Search extends React.Component {
                                 {[this.hydrateGenreMenu()]}
                             </div>
                           </div> 
-                          : <input type="search"/> }
+                          : <input type="search" onChange={this.handleSearchChange}/> }
                     </div>
                     
                     <div className="col-lg-2 text-l">
@@ -120,7 +123,8 @@ class Search extends React.Component {
                 <div className="row">
                     <div className="col-lg-12">
                         { this.state.selectedOption === "three" ?
-                        null : <button type="submit">Search</button> }
+                        null : 
+                        <button type="submit">Search</button> }
                     </div>
                 </div>
                 </form>

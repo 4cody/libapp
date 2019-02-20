@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const AuthorSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        lowercase: true
     },
     born: {
         type: String
@@ -12,10 +13,10 @@ const AuthorSchema = new Schema({
     died: {
         type: String
     },
-    books: {
-        type: Array
-    }
-
+    books: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Books'
+    }]
 });
 
 module.exports = Author = mongoose.model('Author', AuthorSchema);
