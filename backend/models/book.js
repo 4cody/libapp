@@ -8,10 +8,7 @@ const BookSchema = new Schema({
         lowercase: true
     },
     author: {
-        type: {
-            type: Schema.Types.ObjectId,
-            ref: 'Authors'
-        },
+        type: String,
         required: true,
         lowercase: true
     },

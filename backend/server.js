@@ -9,42 +9,52 @@ const Book        = require('./models/book');
 const app         = express();
 
 // const indexRouter = require('./routes/index');
-const authorRouter = require('./routes/authors');
-const bookRouter = require('./routes/books');
+// const authorRouter = require('./routes/authors');
+// const bookRouter = require('./routes/books');
 
 // Express Middleware
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 // Routing
 // app.use('/authors', authorRouter);
 // app.use('/books', bookRouter);
 
-app.get('/books', (req, res) => {
-    Book.find({}).then(docs => res.json(docs))
-})
+app.route('/books')
+    .get((req, res) => {
+        Book.find({}).then(docs => res.json(docs))
+    })
+    .post((req, res) => {
+        let b = new Book({
+            title: req.body.title,
+            author: req.body.author,
+            genre: req.body.genre
+        })
+            
+        b.save()
+            .then(doc => console.log(doc))
+            .catch(err => console.error(err))
+        res.json(req.body)
+    })
+
+// app.get('/books', (req, res) => {
+//     Book.find({}).then(docs => res.json(docs))
+// })
 
 app.get('/books/:title', (req, res) => {
     Book.findOne({title: req.params.title})
         .then(doc => res.json(doc))
 })
 
-// ////////////////////////////////////
-
-// app.get('/catalog/:title', (req, res) => {
-//     let q = Book.where({ title: req.params.title });
-//     q.findOne(item => res.send(item))
-//     console.log("working route")
-//     console.log(req.params)
+// app.post('/test', (req, res) => {
+//     res.send('hello test workinng')
 // })
 
 // app.post('/add', (req, res) => {
 //     let b = new Book({
 //         title: req.body.title,
 //         author: req.body.author,
-//         genre: req.body.genre,
-//         pages: req.body.pages,
-//         available: req.body.available,
-//         book_id: req.body.book_id
+//         genre: req.body.genre
 //     }) 
 //     b.save()
 //         .then(doc => console.log(doc))
@@ -52,7 +62,6 @@ app.get('/books/:title', (req, res) => {
 //     res.json(req.body)
 // });
 
-// ///////////////////////////////////////
 
 
 // @desc Connect to db and start server

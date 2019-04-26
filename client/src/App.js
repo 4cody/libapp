@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
+// import Search from './containers/SearchContainer'
+import AddBook from './containers/AddBook'
+import Display from './containers/Display'
 
-import AppMain from './containers/appMain/AppMain';
 
 class App extends Component {
   render() {
     return (
-      <AppMain />
+      <div>
+        <AddBook />
+        <Display />
+      </div>
     );
   }
 }
