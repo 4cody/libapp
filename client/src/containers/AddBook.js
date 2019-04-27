@@ -16,8 +16,6 @@ class AddBook extends Component {
     }
 
     onSubmit = e => {
-        e.preventDefault();
-        e.stopPropagation();
         let book = {
             title: this.state.title,
             author: this.state.author,
@@ -28,29 +26,31 @@ class AddBook extends Component {
 
     render() {
         return(
-            <form onSubmit={this.onSubmit}>
+            <form 
+                className="Add_Form"
+                onSubmit={this.onSubmit}>
                 <label>
-                    Title: 
+                    <span>Title:</span> 
                     <input type="text" 
                         name='title'
                         value={this.state.title} 
                         onChange={this.onChange}/>
                 </label><br/>
                 <label>
-                    Author: 
+                    <span>Author:</span> 
                     <input type="text" 
                         name='author'
                         value={this.state.author} 
                         onChange={this.onChange}/>
                 </label><br/>
                 <label>
-                    Genre: 
+                    <span>Genre:</span> 
                     <input type="text" 
                         name='genre'
                         value={this.state.genre} 
                         onChange={this.onChange}/>
                 </label>
-                <input type="submit"/>
+                <input type="submit" value="Donate Book!"/>
             </form>
         )
     }
