@@ -28,7 +28,8 @@ app.route('/books')
         let b = new Book({
             title: req.body.title,
             author: req.body.author,
-            genre: req.body.genre
+            genre: req.body.genre,
+            desc: req.body.desc
         })
             
         b.save()
@@ -37,34 +38,13 @@ app.route('/books')
         res.json(req.body)
     })
 
-// app.get('/books', (req, res) => {
-//     Book.find({}).then(docs => res.json(docs))
-// })
-
 app.get('/books/:title', (req, res) => {
     Book.findOne({title: req.params.title})
         .then(doc => res.json(doc))
 })
 
-// app.post('/test', (req, res) => {
-//     res.send('hello test workinng')
-// })
 
-// app.post('/add', (req, res) => {
-//     let b = new Book({
-//         title: req.body.title,
-//         author: req.body.author,
-//         genre: req.body.genre
-//     }) 
-//     b.save()
-//         .then(doc => console.log(doc))
-//         .catch(err => console.error(err))
-//     res.json(req.body)
-// });
-
-
-
-// @desc Connect to db and start server
+// Connect to db and start server
 const PORT = process.env.PORT || 3030;
 
 mongoose.connect(db.URI, { useNewUrlParser: true }, 

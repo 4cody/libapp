@@ -30,7 +30,6 @@
   display: flex;
   flex-flow: column;
   text-align: left;
-  width: 280px;
 
   background: rgba(135, 206, 250, 0.8);
 }
@@ -51,7 +50,15 @@
   align-self: center;
 }
 
+#Text_Box {
+  display: inline-block !important;
+}
+
 .Display {
   flex-grow: 3;
   background: skyblue;
+}
+
+.Book_Listing {
+
 }

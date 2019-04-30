@@ -13,19 +13,20 @@ export const fetchBooks = () => dispatch => {
         })) 
 }
 
-export const addBook = ({ title, author, genre }) => dispatch => {
+export const addBook = ({ title, author, genre, desc }) => dispatch => {
     dispatch(addBookStarted())
     axios
       .post('/books', {
-        title, 
-        author, 
-        genre
+        title,
+        author,
+        genre,
+        desc
       })
       .then(book => {
         dispatch(addBookSuccess(book.data))
       })
       .catch(err => {
-          dispatch(addBookFailure(err.message))
+        dispatch(addBookFailure(err.message))
       })
 }
 

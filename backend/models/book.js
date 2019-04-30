@@ -17,6 +17,10 @@ const BookSchema = new Schema({
         required: true,
         lowercase: true
     },
+    desc: {
+        type: String,
+        required: true
+    },
     pages: {
         type: Number
     },

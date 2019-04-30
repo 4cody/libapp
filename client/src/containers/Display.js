@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import propTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchBooks } from '../dux/actions/bookActions'
+import { Link } from 'react-router-dom'
 
 import '../App.css'
 
@@ -22,6 +23,7 @@ class Display extends Component {
         return(
             <div className="Display">
                 {bookList}
+                <Link to='/test'>BACK TO DISPLAY</Link>
             </div>
         )
     }

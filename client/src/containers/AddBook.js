@@ -8,7 +8,8 @@ class AddBook extends Component {
     state = {
         title: '',
         author: '',
-        genre: ''
+        genre: '',
+        desc: ''
     }
 
     onChange = e => {
@@ -19,7 +20,8 @@ class AddBook extends Component {
         let book = {
             title: this.state.title,
             author: this.state.author,
-            genre: this.state.genre
+            genre: this.state.genre,
+            desc: this.state.desc
         }
         this.props.addBook(book)
     }
@@ -49,6 +51,10 @@ class AddBook extends Component {
                         name='genre'
                         value={this.state.genre} 
                         onChange={this.onChange}/>
+                </label>
+                <label id="Text_Box">
+                    <span>Description:</span><br/>
+                    <textarea cols="33" rows="10"></textarea>
                 </label>
                 <input type="submit" value="Donate Book!"/>
             </form>
