@@ -38,8 +38,8 @@ app.route('/books')
         res.json(req.body)
     })
 
-app.get('/books/:title', (req, res) => {
-    Book.findOne({title: req.params.title})
+app.get('/books/:id', (req, res) => {
+    Book.findOne({id: req.params.id})
         .then(doc => res.json(doc))
 })
 

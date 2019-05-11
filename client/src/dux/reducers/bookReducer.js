@@ -2,11 +2,13 @@ import {
     FETCH_BOOKS,
     ADD_BOOK_SUCCESS,
     ADD_BOOK_FAILURE,
-    ADD_BOOK_STARTED 
+    ADD_BOOK_STARTED,
+    BOOK_SELECTION 
 } from '../actions/types'
 
 const initialState = {
     books: [],
+    selection: {},
     error: null,
     loadinng: false
 }
@@ -26,7 +28,6 @@ export default function(state = initialState, action) {
             }
         
         case ADD_BOOK_SUCCESS:
-            console.log(action.payload, "reducers payload")
             return {
                 ...state,
                 loading: false,
@@ -39,6 +40,12 @@ export default function(state = initialState, action) {
                 ...state,
                 loading: false,
                 error: action.payload.error
+            }
+
+        case BOOK_SELECTION:
+            return {
+                ...state,
+                selection: action.payload
             }
 
         default: 

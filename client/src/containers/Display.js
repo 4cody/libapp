@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchBooks } from '../dux/actions/bookActions'
+import { fetchBooks, bookSelector } from '../dux/actions/bookActions'
 import { Link } from 'react-router-dom'
 
 import '../App.css'
@@ -11,19 +11,28 @@ class Display extends Component {
         this.props.fetchBooks();
     }
 
+    handleClick(e) {
+        this.props.bookSelector(e.target.id);
+    }
+
     render() {
 
-        const bookList = this.props.books.map(book => (
-            <div key={book.book_id} className="Book_Listing">
-                <h3>{book.title}</h3>
-                <h3>{book.genre}</h3>
-            </div>
+        const bookList = this.props.books.map((book, i) => (
+            // <Link key={i} to={'/book'}>
+                <div  
+                    className="Book_Listing" 
+                    id={book._id}
+                    // onClick={this.handleClick}
+                    >
+                    <h6>{book.title}</h6>
+                    {book.author}
+                </div>
+            // </Link>
         ))
 
         return(
             <div className="Display">
                 {bookList}
-                <Link to='/test'>BACK TO DISPLAY</Link>
             </div>
         )
     }
@@ -31,6 +40,7 @@ class Display extends Component {
 
 Display.propTypes = {
     fetchBooks: propTypes.func.isRequired,
+    bookSelector: propTypes.func.isRequired,
     books: propTypes.array.isRequired
 }
 
@@ -38,4 +48,4 @@ const mapStateToProps = state => ({
     books: state.books.books
 })
 
-export default connect(mapStateToProps, { fetchBooks })(Display)
+export default connect(mapStateToProps, { fetchBooks, bookSelector })(Display)

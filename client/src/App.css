@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .Page_Wrapper {
   background: url('./img/bookshelf.jpg');
 }
@@ -60,5 +64,22 @@
 }
 
 .Book_Listing {
+  display: flex;
+  flex-flow: column;
+}
 
+.Book_Listing {
+  margin: 20px;
+  padding: 3px;
+  border: 3px inset black;
+  width: 300px;
+
+  -webkit-transition-property: background-color; /* Safari */
+  -webkit-transition-duration: 1s; /* Safari */
+  transition-property: background-color;
+  transition-duration: 1s;
+}
+
+.Book_Listing:hover {
+  background-color: rgb(221, 224, 253)
 }

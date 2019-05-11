@@ -54,7 +54,12 @@ class AddBook extends Component {
                 </label>
                 <label id="Text_Box">
                     <span>Description:</span><br/>
-                    <textarea cols="33" rows="10"></textarea>
+                    <textarea 
+                        name="desc"
+                        value={this.state.desc}
+                        onChange={this.onChange} 
+                        cols="33" 
+                        rows="10" />
                 </label>
                 <input type="submit" value="Donate Book!"/>
             </form>

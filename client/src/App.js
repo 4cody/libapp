@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 import Header from './components/Header'
 import AddBook from './containers/AddBook'
 import Display from './containers/Display'
-import test from './components/Test'
+import Book from './containers/Book'
 
 
 class App extends Component {
@@ -17,8 +17,10 @@ class App extends Component {
             <Header />
             <div className="App_Content">
               <AddBook />
-              <Route exact path="/" component={Display} />
-              <Route path="/test" component={test} />
+              <Switch>
+                <Route exact path="/" component={Display} />
+                <Route path="/book" component={Book} />
+              </Switch>
             </div>
           </div>
         </div>
