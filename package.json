@@ -4,8 +4,7 @@
   "description": "Mock library to store, add and remove books from a  data base",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd backend && node server"
+    "start": "cd backend && npm start"
   },
   "repository": {
     "type": "git",
