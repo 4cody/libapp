@@ -11,8 +11,7 @@
     "nodemon": "^1.18.11"
   },
   "scripts": {
-    "start": "node server.js",
-    "nodemon": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC"
