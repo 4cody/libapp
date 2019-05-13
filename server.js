@@ -15,6 +15,7 @@ const app         = express();
 // Express Middleware
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use('/', express.static(path.join(__dirname, './client/build')));
 
 // Routing
 // app.use('/authors', authorRouter);
