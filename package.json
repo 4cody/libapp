@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "backend_bookstore",
   "version": "1.0.0",
-  "description": "",
+  "description": "mock bookstore built with MERN stack",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -11,8 +11,9 @@
     "nodemon": "^1.18.11"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Cody Shanenr",
+  "license": "MIT"
 }
